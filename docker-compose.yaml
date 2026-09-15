@@ -1,0 +1,43 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cf-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    depends_on: 
+      - mcpjungle
+
+  db:
+    image: postgres:17
+    container_name: mcpjungle-db
+    environment:
+      POSTGRES_USER: mcpjungle
+      POSTGRES_PASSWORD: mcpjungle
+      POSTGRES_DB: mcpjungle
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "PGPASSWORD=mcpjungle pg_isready -U mcpjungle" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  mcpjungle:
+    image: ghcr.io/mcpjungle/mcpjungle:latest-stdio
+    container_name: mcpjungle-server
+    environment:
+      DATABASE_URL: postgres://mcpjungle:mcpjungle@db:5432/mcpjungle
+      SERVER_MODE: development
+      MCP_SERVER_INIT_REQ_TIMEOUT_SEC: 30
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - /Users/admin/Desktop/dante926:/host:rw  # 这里的路径就为 mcpjungle 可操作的根路径, 例如宿主机的 /dante926 将作为 mcpjungle 可操作的 /host 根目录
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db_data:

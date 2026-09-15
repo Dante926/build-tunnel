@@ -1,0 +1,8 @@
+{
+  "name": "filesystem",
+  "transport": "stdio",
+  "description": "dante926 project files read/write",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-filesystem", "/host"],
+  "session_mode": "stateless"
+}
