@@ -1,54 +1,52 @@
 # Cloudflare OAuth 认证
 
-## 1. 什么是 OAuth，它有什么作用
+## OAuth
 
-推荐阅读阮一峰《OAuth 2.0 的一个简单解释》：
-<https://www.ruanyifeng.com/blog/2019/04/oauth_design.html>
+推荐阅读阮一峰老师的[《OAuth 2.0 的一个简单解释》](https://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
 
-## 2. 建立 Access 应用
+## 建立 Access 应用
 
 去 `one.dash.cloudflare.com`（Zero Trust 控制台，不是普通 dashboard）：
 
-**Access controls** → **Applications** → **Add an application / Create new application**
-→ **Self-hosted**（自托管，不是 SaaS）→ **Public DNS** → **Continue with Self-hosted and private**
+**Access controls** → **Applications** → **"Create new application"** → **"Self-hosted and private"** → **"Public DNS"** → **"Continue with Self-hosted and private"**
 
 ### Application details
 
-**Destinations**
+1. **Destinations**
 
-| 字段 | 值 |
-| --- | --- |
-| Subdomain | `mcp` |
-| Domain | `xxx.dpdns.org` |
-| Path | 空 |
+| 字段      | 值              |
+| --------- | --------------- |
+| Subdomain | `mcp`           |
+| Domain    | `xxx.dpdns.org` |
+| Path      | 空              |
 
-**Access policies**
-
-Create new policy →
+2. **Access policies**: 点击 Create new policy
 
 - 左侧 **Policy rules**：下拉框选择 `Emails`，邮箱填写注册 Cloudflare 的邮箱
 - 右侧 **Policy details**：Policy name 填 `only-me`，Action 选 `Allow`
-- Save policy
+- **"Save policy"**
 
 **Authentication**：默认
 
-**Details**
+**Details:**
 
-| 字段 | 值 |
-| --- | --- |
-| Name | `MCPJungle` |
-| Session Duration | `24 hours` |
+| 字段             | 值          |
+| ---------------- | ----------- |
+| Name             | `MCPJungle` |
+| Session Duration | `24 hours`  |
 
 ### Additional settings
 
+> `Additional` 和 `Applicantion details` 是同级 tab 记得滑动界面回至顶部
+
 **App Launcher customization**
 
-| 字段 | 值 |
-| --- | --- |
-| Set App Launcher logo | `Default` |
+| 字段                             | 值        |
+| -------------------------------- | --------- |
+| Set App Launcher logo            | `Default` |
 | Set domain for App Launcher tile | `Default` |
 
-**Managed OAuth**：打开
+**OAuth**：打开
 
 找到 **Add URI**，填入：
 
@@ -64,3 +62,12 @@ https://chatgpt.com/*
 4. 保存后会自动弹出浏览器 → 走 Cloudflare Access 登录页
 5. 登录用 `xxx@xxx.com`（就是 Access 策略里放行的那个邮箱）。team 如果只配了
    One-time PIN，会往这个邮箱发验证码
+
+## 阅读顺序
+
+1. [从零搭建](./01-从零搭建.md)
+2. [获取域名](./02-DigitalPlat获取域名.md)
+3. [绑定域名与创建隧道](./04-Docker管道MCP.md)
+4. [Docker-Tunnel-MCP](./04-Compose%20与%20MCP%20注册.md)
+5. [连接 ChatGPT](./05-连接%20ChatGPT.md)
+6. OAuth 认证

@@ -1,6 +1,6 @@
 # Local ChatGPT 搭建文档
 
-把本机的一个文件夹通过 MCP 协议暴露给 Web 版 ChatGPT 读写。全程不开任何公网入站端口。
+把本机文件夹通过 MCP 协议暴露给 Web 版 ChatGPT 读写。全程不开任何公网入站端口。
 
 ## 链路
 
