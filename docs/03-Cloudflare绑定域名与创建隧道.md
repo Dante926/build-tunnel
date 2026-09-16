@@ -30,3 +30,12 @@ docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token <TUN
 ```
 
 > 下一章会把它从命令行参数挪进 `.env` 文件，由 docker compose 注入。
+
+## 阅读顺序
+
+1. [从零搭建](./01-从零搭建.md)
+2. [DigitalPlat 获取域名](./02-DigitalPlat获取域名.md)
+3. Cloudflare 绑定域名与创建隧道
+4. [Docker-Tunnel-MCP](./04-Docker-Tunnel-MCP.md)
+5. [ChatGPT 添加自定义插件](./05-ChatGPT自定义插件.md)
+6. [Cloudflare OAuth 认证](./06-OAuth%20认证.md)

@@ -45,3 +45,12 @@ ChatGPT → 设置 → 连接器 → 添加自定义连接器：
 **Cloudflare** → 域名 → `xxx.dpdns.org` → **SSL/TLS** → **Edge Certificate**
 
 **证书未签发时，TLS 握手会在边缘直接失败，请求到不了隧道。**
+
+## 阅读顺序
+
+1. [从零搭建](./01-从零搭建.md)
+2. [DigitalPlat 获取域名](./02-DigitalPlat获取域名.md)
+3. [Cloudflare 绑定域名与创建隧道](./03-Cloudflare绑定域名与创建隧道.md)
+4. [Docker-Tunnel-MCP](./04-Docker-Tunnel-MCP.md)
+5. ChatGPT 添加自定义插件
+6. [Cloudflare OAuth 认证](./06-OAuth%20认证.md)

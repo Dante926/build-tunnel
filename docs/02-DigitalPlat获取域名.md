@@ -36,3 +36,12 @@
 - 输入 username 时，字符长度要超过 5
 - 输入姓名时，姓与名之间要有空格符（space）
 - 注册完成后绑定一个 GitHub 账号
+
+## 阅读顺序
+
+1. [从零搭建](./01-从零搭建.md)
+2. DigitalPlat 获取域名
+3. [Cloudflare 绑定域名与创建隧道](./03-Cloudflare绑定域名与创建隧道.md)
+4. [Docker-Tunnel-MCP](./04-Docker-Tunnel-MCP.md)
+5. [ChatGPT 添加自定义插件](./05-ChatGPT自定义插件.md)
+6. [Cloudflare OAuth 认证](./06-OAuth%20认证.md)
