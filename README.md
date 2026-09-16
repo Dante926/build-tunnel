@@ -4,6 +4,15 @@
 
 ![ChatGPT](./docs/assets/0.ChatGPT.png)
 
+## 一句话执行
+
+把下面这段丢给 Claude Code 等 agent：
+
+> 项目地址：`https://github.com/Dante926/build-tunnel`
+> 读取 `skills/cloudflare-mcp-tunnel/SKILL.md` 并严格执行。
+> 开始前先确认：① 项目来源；② 目录及读写权限；③ 浏览器操作方案；
+> 需要我本人操作的步骤（邮箱验证码、人机校验、Zero Trust 绑卡、OAuth 授权）
+
 ## 链路
 
 ```
@@ -54,6 +63,7 @@ Cloudflare 侧的面板配置（隧道、Public Hostname、Access 应用）不�
 | `./docker-compose.yaml` | 三个服务的编排                      |
 | `./mcp/filesystem.json` | filesystem server 注册配置          |
 | `./scripts/register.sh` | 重新注册 server（`down -v` 后恢复） |
+| `./skills/` | agent 用的编排 skill，见上方「一句话执行」 |
 | `./.env.example`        | 环境变量模板，真实 token 放 `.env`  |
 | `./docs/assets/`        | 文档配图                            |
 
