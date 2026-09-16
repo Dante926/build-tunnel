@@ -62,12 +62,3 @@ https://chatgpt.com/*
 4. 保存后会自动弹出浏览器 → 走 Cloudflare Access 登录页
 5. 登录用 `xxx@xxx.com`（就是 Access 策略里放行的那个邮箱）。team 如果只配了
    One-time PIN，会往这个邮箱发验证码
-
-## 阅读顺序
-
-1. [从零搭建](./01-从零搭建.md)
-2. [获取域名](./02-DigitalPlat获取域名.md)
-3. [绑定域名与创建隧道](./04-Docker管道MCP.md)
-4. [Docker-Tunnel-MCP](./04-Compose%20与%20MCP%20注册.md)
-5. [连接 ChatGPT](./05-连接%20ChatGPT.md)
-6. OAuth 认证

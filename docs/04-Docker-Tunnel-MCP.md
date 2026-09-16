@@ -81,7 +81,7 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
-      - /Users/admin/apps/build-tunnel:/host:rw
+      - /Users/admin/Desktop/dante926:/host:rw
     depends_on:
       db:
         condition: service_healthy
@@ -101,9 +101,9 @@ volumes:
 | `ghcr.io/mcpjungle/mcpjungle:latest-stdio` | 必须是 `latest-stdio` 变体。它包含 node/npx，注册 npx 型 stdio server 才起得来 |
 | `ports: "127.0.0.1:8080:8080"`             | 把容器 8080 映射到宿主机 8080，且**只绑本地回环**，公网访问不到                |
 | `mcpjungle:8080`                           | 三个服务在同一 compose 网络里，服务名可直接当主机名用                          |
-| `db_data`                                  | 命名卷，存 mcpjungle 的注册表。`docker down` 不删，`docker down -v` 才会删     |
+| `db_data`                                  | 命名卷，存 mcpjungle 的注册表。`docker compose down` 不删，加 `-v` 才会删     |
 | `:rw`                                      | 挂载可写。ChatGPT 因此能改写、删除该目录下任何文件；只读用途改成 `:ro`         |
-| `/Users/admin/apps/build-tunnel:/host:rw`  | 这里的 `/build-tunnel` 目录会成为 `mcpjungle` 可操作的根目录。                 |
+| `/Users/admin/Desktop/dante926:/host:rw`  | 冒号左边是宿主机路径，右边是容器内路径。该宿主机目录会成为 mcpjungle 可操作的根目录。 |
 
 ## 注册 filesystem MCP
 
@@ -113,7 +113,7 @@ volumes:
 {
   "name": "filesystem",
   "transport": "stdio",
-  "description": "project files read/write",
+  "description": "dante926 project files read/write",
   "command": "npx",
   "args": ["-y", "@modelcontextprotocol/server-filesystem", "/host"],
   "session_mode": "stateless"
@@ -151,12 +151,3 @@ curl -s http://127.0.0.1:8080/api/v0/servers
   }
 ]
 ```
-
-## 阅读顺序
-
-1. [从零搭建](./01-从零搭建.md)
-2. [获取域名](./02-DigitalPlat获取域名.md)
-3. [绑定域名与创建隧道](./04-Docker管道MCP.md)
-4. Docker-Tunnel-MCP
-5. [连接 ChatGPT](./05-连接%20ChatGPT.md)
-6. [OAuth 认证](./06-OAuth%20认证.md)
