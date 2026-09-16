@@ -1,6 +1,8 @@
 # Local ChatGPT 搭建文档
 
-让 Web ChatGPT 读写本地文件。
+使用 WebChatGPT 不会消耗你 Plan 的额度，这个项目让 Web ChatGPT 读写本地文件以及更多可能。
+
+![ChatGPT](./docs/assets/0.ChatGPT.png)
 
 ## 链路
 
@@ -24,15 +26,14 @@ filesystem MCP server
 
 ## 文档
 
-| # | 文档 | 内容 |
-| --- | --- | --- |
-| 01 | [从零搭建](./docs/01-从零搭建.md) | 总览、链路图、前置条件 |
-| 02 | [DigitalPlat 获取域名](./docs/02-DigitalPlat获取域名.md) | 免费申请 `.dpdns.org` |
-| 03 | [Cloudflare 绑定域名与创建隧道](./docs/03-Cloudflare绑定域名与创建隧道.md) | NS 托管到 Cloudflare、建隧道拿 token |
-| 04 | [Docker-Tunnel-MCP](./docs/04-Docker-Tunnel-MCP.md) | 三服务 compose、注册 filesystem server |
-| 05 | [ChatGPT 添加自定义插件](./docs/05-ChatGPT自定义插件.md) | Public Hostname、ChatGPT 连接器 |
-| 06 | [Cloudflare OAuth 认证](./docs/06-OAuth%20认证.md) | Cloudflare Access、Managed OAuth |
-| 07 | [故障排查](./docs/07-故障排查.md) | 症状 → 原因 → 修法 |
+| #   | 文档                                                                       | 内容                                   |
+| --- | -------------------------------------------------------------------------- | -------------------------------------- |
+| 01  | [从零搭建](./docs/01-从零搭建.md)                                          | 总览、链路图、前置条件                 |
+| 02  | [DigitalPlat 获取域名](./docs/02-DigitalPlat获取域名.md)                   | 免费申请 `.dpdns.org`                  |
+| 03  | [Cloudflare 绑定域名与创建隧道](./docs/03-Cloudflare绑定域名与创建隧道.md) | NS 托管到 Cloudflare、建隧道拿 token   |
+| 04  | [Docker-Tunnel-MCP](./docs/04-Docker-Tunnel-MCP.md)                        | 三服务 compose、注册 filesystem server |
+| 05  | [ChatGPT 添加自定义插件](./docs/05-ChatGPT自定义插件.md)                   | Public Hostname、ChatGPT 连接器        |
+| 06  | [Cloudflare OAuth 认证](./docs/06-OAuth%20认证.md)                         | Cloudflare Access、Managed OAuth       |
 
 ## 从零恢复
 
@@ -48,16 +49,25 @@ Cloudflare 侧的面板配置（隧道、Public Hostname、Access 应用）不�
 
 ## 相关文件
 
-| 路径 | 说明 |
-| --- | --- |
-| `./docker-compose.yaml` | 三个服务的编排 |
-| `./mcp/filesystem.json` | filesystem server 注册配置 |
+| 路径                    | 说明                                |
+| ----------------------- | ----------------------------------- |
+| `./docker-compose.yaml` | 三个服务的编排                      |
+| `./mcp/filesystem.json` | filesystem server 注册配置          |
 | `./scripts/register.sh` | 重新注册 server（`down -v` 后恢复） |
-| `./.env.example` | 环境变量模板，真实 token 放 `.env` |
-| `./docs/assets/` | 文档配图 |
+| `./.env.example`        | 环境变量模板，真实 token 放 `.env`  |
+| `./docs/assets/`        | 文档配图                            |
 
 ## 约定
 
 - 文中 `xxx.dpdns.org` 是占位符，替换成你自己的域名
 - 隧道 token 属密钥，只放 `.env`，不要提交进 git
 - `mcpjungle` 以 `:rw` 挂载本机目录，ChatGPT 因此**可以改写、删除该目录下任何文件**
+
+## 免责声明
+
+本项目仅用于个人学习与技术研究，打通的是「本机服务 ↔ 你自己的 ChatGPT 账号」这条链路。
+它不修改、不逆向、不绕过 OpenAI 的任何产品或服务，也不分发 OpenAI 的代码、凭据或用户数据。
+使用者需自行确保自己的使用方式符合 OpenAI 服务条款及所在地法律法规。
+
+如本项目内容无意中侵犯了 OpenAI 或其他第三方的合法权益，请通过
+**umiying86@gmail.com** 与我联系，我会尽快处理。
