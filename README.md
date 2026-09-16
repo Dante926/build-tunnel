@@ -8,10 +8,9 @@
 
 把下面这段丢给 Claude Code 等 agent：
 
-> 项目地址：`https://github.com/Dante926/build-tunnel`
-> 读取 `skills/cloudflare-mcp-tunnel/SKILL.md` 并严格执行。
-> 开始前先确认：① 项目来源；② 目录及读写权限；③ 浏览器操作方案；
-> 需要我本人操作的步骤（邮箱验证码、人机校验、Zero Trust 绑卡、OAuth 授权）
+```bash
+项目地址：`https://github.com/Dante926/build-tunnel`读取 `skills/cloudflare-mcp-tunnel/SKILL.md` 并严格执行。开始前先确认：① 项目来源；② 目录及读写权限；③ 浏览器操作方案；需要我本人操作的步骤（邮箱验证码、人机校验、Zero Trust 绑卡、OAuth 授权）
+```
 
 ## 链路
 
@@ -58,14 +57,14 @@ Cloudflare 侧的面板配置（隧道、Public Hostname、Access 应用）不�
 
 ## 相关文件
 
-| 路径                    | 说明                                |
-| ----------------------- | ----------------------------------- |
-| `./docker-compose.yaml` | 三个服务的编排                      |
-| `./mcp/filesystem.json` | filesystem server 注册配置          |
-| `./scripts/register.sh` | 重新注册 server（`down -v` 后恢复） |
-| `./skills/` | agent 用的编排 skill，见上方「一句话执行」 |
-| `./.env.example`        | 环境变量模板，真实 token 放 `.env`  |
-| `./docs/assets/`        | 文档配图                            |
+| 路径                    | 说明                                       |
+| ----------------------- | ------------------------------------------ |
+| `./docker-compose.yaml` | 三个服务的编排                             |
+| `./mcp/filesystem.json` | filesystem server 注册配置                 |
+| `./scripts/register.sh` | 重新注册 server（`down -v` 后恢复）        |
+| `./skills/`             | agent 用的编排 skill，见上方「一句话执行」 |
+| `./.env.example`        | 环境变量模板，真实 token 放 `.env`         |
+| `./docs/assets/`        | 文档配图                                   |
 
 ## 约定
 
@@ -75,7 +74,7 @@ Cloudflare 侧的面板配置（隧道、Public Hostname、Access 应用）不�
 
 ## 免责声明
 
-本项目仅用于个人学习与技术研究，打通的是「本机服务 ↔  ChatGPT」这条链路。
+本项目仅用于个人学习与技术研究，打通的是「本机服务 ↔ ChatGPT」这条链路。
 它不修改、不逆向、不绕过 OpenAI 的任何产品或服务，也不分发 OpenAI 的代码、凭据或用户数据。
 使用者需自行确保自己的使用方式符合 OpenAI 服务条款及所在地法律法规。
 
