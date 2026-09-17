@@ -5,7 +5,6 @@ set -eu
 cd "$(dirname "$0")/.."
 
 # 容器内路径 = 挂载点 + 本仓库相对于挂载源的路径。
-# 本项目把 /Users/admin/Desktop/dante926 挂到容器的 /host，仓库就在它的 build-tunnel/ 下。
 CFG=/host/build-tunnel/mcp/filesystem.json
 
 docker compose exec -T mcpjungle sh -c "test -f $CFG" || {

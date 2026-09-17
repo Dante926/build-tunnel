@@ -1,6 +1,6 @@
 # Local ChatGPT 搭建文档
 
-使用 WebChatGPT 不会消耗你 Plan 的额度，这个项目让 Web ChatGPT 读写本地文件以及更多可能。
+把本机文件夹接进 Web ChatGPT，这个项目让 Web ChatGPT 读写本地文件以及更多可能。
 
 ![ChatGPT](./docs/assets/0.ChatGPT.png)
 
@@ -46,7 +46,7 @@ filesystem MCP server
 ## 从零恢复
 
 ```sh
-cp .env.example .env     # 填入 TUNNEL_TOKEN
+cp .env.example .env     # 填入 TUNNEL_TOKEN & HOST_DIR
 docker compose up -d
 docker compose ps        # db 需为 healthy
 ./scripts/register.sh    # 注册 filesystem MCP server

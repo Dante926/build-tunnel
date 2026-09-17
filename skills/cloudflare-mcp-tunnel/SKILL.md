@@ -23,7 +23,7 @@ description: Use when exposing a local folder to web ChatGPT through Cloudflare 
 
 ## 首次汇报的固定格式
 
-动手前向用户汇报时，**必须逐项给出下面四行，一行都不能省**：
+动手前向用户汇报时，**必须逐项给出下面三行，一行都不能省**：
 
 ```
 1. 项目来源：<用的是当前仓库 / 需要先 clone 到 ___ / 检测到已有实例在跑：___>

@@ -4,7 +4,7 @@ services:
     container_name: cf-tunnel
     restart: unless-stopped
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
-    depends_on: 
+    depends_on:
       - mcpjungle
 
   db:
@@ -33,7 +33,7 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
-      - /Users/admin/Desktop/dante926:/host:rw  # 这里的路径就为 mcpjungle 可操作的根路径, 例如宿主机的 /dante926 将作为 mcpjungle 可操作的 /host 根目录
+      - ${HOST_DIR:?}:/host:rw
     depends_on:
       db:
         condition: service_healthy

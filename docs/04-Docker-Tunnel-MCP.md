@@ -10,6 +10,7 @@
 
 ```sh
 TUNNEL_TOKEN = "<上一章得到的 TUNNEL_TOKEN>"
+HOST_DIR = "" # 开放给 GPT 操作的根目录
 ```
 
 2. 创建 `docker-compose.yaml`，先只放 cloudflared：
@@ -81,7 +82,7 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
-      - /Users/admin/Desktop/dante926:/host:rw
+      - ${HOST_DIR:?}:/host:rw
     depends_on:
       db:
         condition: service_healthy
@@ -103,7 +104,7 @@ volumes:
 | `mcpjungle:8080`                           | 三个服务在同一 compose 网络里，服务名可直接当主机名用                          |
 | `db_data`                                  | 命名卷，存 mcpjungle 的注册表。`docker compose down` 不删，加 `-v` 才会删     |
 | `:rw`                                      | 挂载可写。ChatGPT 因此能改写、删除该目录下任何文件；只读用途改成 `:ro`         |
-| `/Users/admin/Desktop/dante926:/host:rw`  | 冒号左边是宿主机路径，右边是容器内路径。该宿主机目录会成为 mcpjungle 可操作的根目录。 |
+| `${HOST_DIR:?}:/host:rw`  | 冒号左边是宿主机路径，右边是容器内路径。该宿主机目录会成为 mcpjungle 可操作的根目录。 |
 
 ## 注册 filesystem MCP
 
